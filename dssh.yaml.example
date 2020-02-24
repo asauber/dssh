@@ -37,7 +37,7 @@ spec:
           do
             mkdir -p /mnt/root/.ssh
             rm -f /mnt/root/.ssh/authorized_keys_new
-            for key in $(find /mnt/keys -type f); do cat ${key} >> /mnt/root/.ssh/authorized_keys_new; done
+            for key in $(find /mnt/keys -type f); do (cat ${key}; echo) >> /mnt/root/.ssh/authorized_keys_new; done
             mv /mnt/root/.ssh/authorized_keys_new /mnt/root/.ssh/authorized_keys
             sleep 60s;
           done
