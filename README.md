@@ -4,6 +4,7 @@
 
 ```
 cp dssh.yaml.example dssh.yaml
+
 # edit dssh.yaml to include your public keys in the configmap
 kubectl apply -f dssh.yaml
 ```
