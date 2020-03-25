@@ -1,6 +1,6 @@
 ## dssh - Keep your authorized\_keys up to date on a Kubernetes cluster.
 
-### Deployment
+### Deploying Your Public Keys
 
 ```
 cp dssh.yaml.example dssh.yaml
@@ -9,7 +9,7 @@ cp dssh.yaml.example dssh.yaml
 kubectl apply -f dssh.yaml
 ```
 
-### Updating Pubkeys
+### Updating Your Public Keys
 
 ```
 # edit dssh.yaml to update your public keys in the configmap
