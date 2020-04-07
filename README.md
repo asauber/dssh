@@ -3,22 +3,30 @@
 ### Deploying Your Public Keys
 
 ```
-cp dssh.yaml.example dssh.yaml
+cp keys.yaml.example keys.yaml
 
-# edit dssh.yaml to include your public keys in the configmap
-kubectl apply -f dssh.yaml
+# Edit keys.yaml to include your public keys
+
+kubectl apply -f daemonset.yaml
+kubectl apply -f keys.yaml
 ```
 
 ### Updating Your Public Keys
 
 ```
-# edit dssh.yaml to update your public keys in the configmap
-kubectl apply -f dssh.yaml
+# Edit keys.yaml to update your public keys
+
+kubectl apply -f keys.yaml
+```
+
+### Updating dssh
+
+```
+kubectl apply -f daemonset.yaml
 ```
 
 ### Notes
 
-Every 60 seconds your public keys will be applied to all Nodes in the cluster.
-
-You need permission to deploy priviledged pods.
+- Every 60 seconds your public keys will be applied to all Nodes in the cluster.
+- You need permission to deploy priviledged pods.
 
