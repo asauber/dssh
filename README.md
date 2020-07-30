@@ -32,6 +32,11 @@ kubectl apply -f keys.yaml
 kubectl apply -f daemonset.yaml
 ```
 
+### Removing dssh
+```
+kubectl delete daemonset -n kube-system root-ssh-manager
+```
+
 ### Notes
 
 - Every 60 seconds your public keys will be applied to all Nodes in the cluster.
