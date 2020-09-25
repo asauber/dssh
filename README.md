@@ -10,31 +10,18 @@ while you are working on it.
 ### Deploying Your Public Keys
 
 ```
-cp keys.yaml.example keys.yaml
-
-# Edit keys.yaml to include your public keys
-
-kubectl apply -f daemonset.yaml
-kubectl apply -f keys.yaml
+helm install dssh . --set "keys={ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMQWiTqUTFVUMASTPpWLd+tYqQD1BW3AKCZfaczsQvP5 user2@hostname,$(cat ~/.ssh/id_rsa.pub)}"
 ```
 
 ### Updating Your Public Keys
 
 ```
-# Edit keys.yaml to update your public keys
-
-kubectl apply -f keys.yaml
-```
-
-### Updating dssh
-
-```
-kubectl apply -f daemonset.yaml
+helm upgrade dssh . --set "keys={ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMQWiTqUTFVUMASTPpWLd+tYqQD1BW3AKCZfaczsQvP5 user2@hostname,$(cat ~/.ssh/id_rsa.pub)}"
 ```
 
 ### Removing dssh
 ```
-kubectl delete daemonset -n kube-system root-ssh-manager
+helm delete dssh
 ```
 
 ### Notes
