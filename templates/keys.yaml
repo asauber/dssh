@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: root-ssh-pubkeys
+  namespace: kube-system
+data:
+  {{- range $index, $key := .Values.keys }}
+  mykey{{ $index }}: {{ $key | quote }}
+  {{- end }}
